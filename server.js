@@ -1,7 +1,7 @@
 // Loads the install package for express
 const express = require('express');
 const path = require('path');
-const api = require('./routes/api');
+const api = require('./routes/index.js');
 
 // Creates a server with the name app
 const app = express();
