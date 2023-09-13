@@ -31,3 +31,5 @@ notes.post('/', (req, res) => {
     res.error('Error in adding Note');
   }
 });
+
+module.exports = notes;
