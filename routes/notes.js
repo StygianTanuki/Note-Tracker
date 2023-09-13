@@ -32,4 +32,19 @@ notes.post('/', (req, res) => {
   }
 });
 
+// Deletes the notes
+notes.delete('/:id', (req, res) => {
+
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const newData = JSON.parse(data).filter(({ id }) => id !== req.params.id);
+      console.log("this is newData: " + newData);
+      writeToFile('./db/db.json', newData);
+      res.json(`Note deleted successfully`);
+    }
+  })
+});
+
 module.exports = notes;
